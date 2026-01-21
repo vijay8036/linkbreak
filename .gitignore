@@ -1,0 +1,20 @@
+# WordPress
+*.log
+.htaccess
+
+# Plugin specific
+linkbrack.zip
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
