@@ -3,7 +3,7 @@
  * Plugin Name:       Link Analyzer - 404 Link Scanner
  * Plugin URI:        https://link-analyzer.com
  * Description:       A professional broken link scanner for WordPress. Scans posts, pages, and assets to detect 404 errors.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Author:            Vijay Salvi
  * License:           GPL-2.0+
  * Text Domain:       link-analyzer
@@ -16,7 +16,7 @@ if (!defined('WPINC')) {
 }
 
 // Define Constants
-define('LINK_ANALYZER_VERSION', '1.1.1');
+define('LINK_ANALYZER_VERSION', '1.1.2');
 define('LINK_ANALYZER_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('LINK_ANALYZER_PLUGIN_URL', plugin_dir_url(__FILE__));
 
