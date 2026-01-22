@@ -1,18 +1,18 @@
 jQuery(document).ready(function ($) {
 
     const ui = {
-        startBtn: $('#linkbrack-start-scan'),
-        pauseBtn: $('#linkbrack-pause-scan'),
-        statusText: $('#linkbrack-status-text'),
-        progressBar: $('.linkbrack-progress-fill'),
-        progressWrapper: $('.linkbrack-progress-wrapper'),
+        startBtn: $('#link-analyzer-start-scan'),
+        pauseBtn: $('#link-analyzer-pause-scan'),
+        statusText: $('#link-analyzer-status-text'),
+        progressBar: $('.link-analyzer-progress-fill'),
+        progressWrapper: $('.link-analyzer-progress-wrapper'),
         scannedCount: $('#scanned-count'),
         totalCount: $('#total-count'),
-        resultsBody: $('#linkbrack-results-body'),
+        resultsBody: $('#link-analyzer-results-body'),
         statWorking: $('#stat-working'),
         statBroken: $('#stat-broken-header'),
         statTotal: $('#stat-total'),
-        filterStatus: $('#linkbrack-filter-status')
+        filterStatus: $('#link-analyzer-filter-status')
     };
 
     let isPaused = false;
@@ -64,17 +64,17 @@ jQuery(document).ready(function ($) {
     });
 
     // Export Excel Handler
-    $('#linkbrack-export-excel').on('click', function () {
+    $('#link-analyzer-export-excel').on('click', function () {
         const btn = $(this);
         btn.prop('disabled', true).text('Exporting...');
 
         const form = $('<form>', {
             method: 'POST',
-            action: linkbrack_ajax.ajax_url
+            action: link_analyzer_ajax.ajax_url
         });
 
-        form.append($('<input>', { type: 'hidden', name: 'action', value: 'linkbrack_export_csv' }));
-        form.append($('<input>', { type: 'hidden', name: 'nonce', value: linkbrack_ajax.nonce }));
+        form.append($('<input>', { type: 'hidden', name: 'action', value: 'link_analyzer_export_csv' }));
+        form.append($('<input>', { type: 'hidden', name: 'nonce', value: link_analyzer_ajax.nonce }));
 
         $('body').append(form);
         form.submit();
@@ -86,11 +86,11 @@ jQuery(document).ready(function ($) {
     });
 
     // Export PDF Handler
-    $('#linkbrack-export-pdf').on('click', function () {
+    $('#link-analyzer-export-pdf').on('click', function () {
         const btn = $(this);
         btn.prop('disabled', true).text('Generating...');
 
-        const url = linkbrack_ajax.ajax_url + '?action=linkbrack_export_pdf&nonce=' + linkbrack_ajax.nonce;
+        const url = link_analyzer_ajax.ajax_url + '?action=link_analyzer_export_pdf&nonce=' + link_analyzer_ajax.nonce;
         window.open(url, '_blank');
 
         setTimeout(() => {
@@ -108,11 +108,11 @@ jQuery(document).ready(function ($) {
         ui.progressWrapper.show();
 
         $.ajax({
-            url: linkbrack_ajax.ajax_url,
+            url: link_analyzer_ajax.ajax_url,
             type: 'POST',
             data: {
-                action: 'linkbrack_start_scan',
-                nonce: linkbrack_ajax.nonce
+                action: 'link_analyzer_start_scan',
+                nonce: link_analyzer_ajax.nonce
             },
             success: function (response) {
                 if (response.success) {
@@ -136,11 +136,11 @@ jQuery(document).ready(function ($) {
         if (isPaused) return;
 
         $.ajax({
-            url: linkbrack_ajax.ajax_url,
+            url: link_analyzer_ajax.ajax_url,
             type: 'POST',
             data: {
-                action: 'linkbrack_scan_batch',
-                nonce: linkbrack_ajax.nonce,
+                action: 'link_analyzer_scan_batch',
+                nonce: link_analyzer_ajax.nonce,
                 scanned_count: scanStats.scanned // Pass offset or cursor if needed
             },
             success: function (response) {
@@ -215,7 +215,7 @@ jQuery(document).ready(function ($) {
 
     function addResultRow(item) {
         const row = `
-            <tr class="linkbrack-row status-${item.status_label}">
+            <tr class="link-analyzer-row status-${item.status_label}">
                 <td class="column-url">
                     <a href="${item.url}" target="_blank">${item.url}</a>
                 </td>
@@ -238,17 +238,17 @@ jQuery(document).ready(function ($) {
         `;
 
         // Remove empty state if it exists
-        $('.linkbrack-empty-state').remove();
+        $('.link-analyzer-empty-state').remove();
 
         ui.resultsBody.append(row);
     }
 
     function filterResults(status) {
         if (status === 'all') {
-            $('.linkbrack-row').show();
+            $('.link-analyzer-row').show();
         } else {
-            $('.linkbrack-row').hide();
-            $('.linkbrack-row.status-' + status).show();
+            $('.link-analyzer-row').hide();
+            $('.link-analyzer-row.status-' + status).show();
         }
     }
 

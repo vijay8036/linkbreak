@@ -1,17 +1,18 @@
-<div class="wrap linkbrack-wrap">
-    
+<div class="wrap link-analyzer-wrap">
+
     <!-- Header -->
-    <div class="linkbrack-header">
-        <div class="linkbrack-header-left">
-            <div class="linkbrack-header-content">
-                <span class="material-icons linkbrack-logo-icon">link</span>
+    <div class="link-analyzer-header">
+        <div class="link-analyzer-header-left">
+            <div class="link-analyzer-header-content">
+                <img src="<?php echo esc_url(LINK_ANALYZER_PLUGIN_URL . 'admin/images/logo.png'); ?>"
+                    class="link-analyzer-logo-img" alt="Link_Analyzer Logo">
                 <div>
-                    <h1>LinkBrack Scanner</h1>
-                    <p class="linkbrack-subtitle">Professional broken link detection for WordPress</p>
+                    <h1>Link Analyzer</h1>
+                    <p class="link-analyzer-subtitle">Professional broken link detection for WordPress</p>
                 </div>
             </div>
         </div>
-        <div class="linkbrack-header-stat">
+        <div class="link-analyzer-header-stat">
             <span class="material-icons">error</span>
             <div class="stat-content">
                 <h3>Broken Links</h3>
@@ -19,11 +20,11 @@
             </div>
         </div>
     </div>
-    
-    <div class="linkbrack-dashboard">
-        
+
+    <div class="link-analyzer-dashboard">
+
         <!-- Stats Overview -->
-        <div class="linkbrack-stats-row">
+        <div class="link-analyzer-stats-row">
             <div class="stat-box success">
                 <span class="material-icons">check_circle</span>
                 <div class="stat-content">
@@ -41,29 +42,29 @@
         </div>
 
         <!-- Controls -->
-        <div class="linkbrack-card linkbrack-controls">
+        <div class="link-analyzer-card link-analyzer-controls">
             <h2>
                 <span class="material-icons">settings</span>
                 Scan Controls
             </h2>
-            <div class="linkbrack-actions">
-                <button id="linkbrack-start-scan" class="button button-primary button-large">
+            <div class="link-analyzer-actions">
+                <button id="link-analyzer-start-scan" class="button button-primary button-large">
                     <span class="material-icons">play_arrow</span>
                     Start New Scan
                 </button>
-                <button id="linkbrack-pause-scan" class="button button-secondary button-large" disabled>
+                <button id="link-analyzer-pause-scan" class="button button-secondary button-large" disabled>
                     <span class="material-icons">pause</span>
                     Pause
                 </button>
-                <span id="linkbrack-status-text" class="status-message">Ready to scan.</span>
+                <span id="link-analyzer-status-text" class="status-message">Ready to scan.</span>
             </div>
-            
+
             <!-- Progress Bar -->
-            <div class="linkbrack-progress-wrapper" style="display:none;">
-                <div class="linkbrack-progress-bar">
-                    <div class="linkbrack-progress-fill" style="width: 0%;"></div>
+            <div class="link-analyzer-progress-wrapper" style="display:none;">
+                <div class="link-analyzer-progress-bar">
+                    <div class="link-analyzer-progress-fill" style="width: 0%;"></div>
                 </div>
-                <div class="linkbrack-progress-stats">
+                <div class="link-analyzer-progress-stats">
                     <span class="material-icons">analytics</span>
                     <span id="scanned-count">0</span> / <span id="total-count">0</span> items scanned
                 </div>
@@ -71,26 +72,26 @@
         </div>
 
         <!-- Results Table -->
-        <div class="linkbrack-card linkbrack-results">
-            <div class="linkbrack-results-header">
+        <div class="link-analyzer-card link-analyzer-results">
+            <div class="link-analyzer-results-header">
                 <h2>
                     <span class="material-icons">list</span>
                     Scan Results
                 </h2>
-                <div class="linkbrack-header-controls">
-                    <div class="linkbrack-export-buttons">
-                        <button id="linkbrack-export-excel" class="button button-secondary">
+                <div class="link-analyzer-header-controls">
+                    <div class="link-analyzer-export-buttons">
+                        <button id="link-analyzer-export-excel" class="button button-secondary">
                             <span class="material-icons">table_chart</span>
                             Export Excel
                         </button>
-                        <button id="linkbrack-export-pdf" class="button button-secondary">
+                        <button id="link-analyzer-export-pdf" class="button button-secondary">
                             <span class="material-icons">picture_as_pdf</span>
                             Export PDF
                         </button>
                     </div>
-                    <div class="linkbrack-filter-controls">
+                    <div class="link-analyzer-filter-controls">
                         <span class="material-icons">filter_list</span>
-                        <select id="linkbrack-filter-status">
+                        <select id="link-analyzer-filter-status">
                             <option value="all">All Statuses</option>
                             <option value="broken">Broken (404)</option>
                             <option value="working">Working</option>
@@ -99,8 +100,8 @@
                     </div>
                 </div>
             </div>
-            
-            <table class="wp-list-table widefat fixed striped linkbrack-table">
+
+            <table class="wp-list-table widefat fixed striped link-analyzer-table">
                 <thead>
                     <tr>
                         <th width="35%">
@@ -125,8 +126,8 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody id="linkbrack-results-body">
-                    <tr class="linkbrack-empty-state">
+                <tbody id="link-analyzer-results-body">
+                    <tr class="link-analyzer-empty-state">
                         <td colspan="5">
                             <div class="empty-state-content">
                                 <span class="material-icons">search</span>
@@ -143,9 +144,9 @@
 </div>
 
 <!-- Modal Template -->
-<div id="linkbrack-modal" class="linkbrack-modal" style="display:none;">
-    <div class="linkbrack-modal-content">
-        <span class="linkbrack-close">
+<div id="link-analyzer-modal" class="link-analyzer-modal" style="display:none;">
+    <div class="link-analyzer-modal-content">
+        <span class="link-analyzer-close">
             <span class="material-icons">close</span>
         </span>
         <h2 id="modal-title">Link Details</h2>

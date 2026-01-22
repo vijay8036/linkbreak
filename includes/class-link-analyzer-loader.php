@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  */
-class LinkBrack_Loader {
+class Link_Analyzer_Loader {
 
 	protected $actions;
 	protected $filters;

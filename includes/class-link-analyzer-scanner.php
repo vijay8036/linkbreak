@@ -1,12 +1,12 @@
 <?php
 
-class LinkBrack_Scanner {
+class Link_Analyzer_Scanner {
 
     private $db_table;
 
     public function __construct() {
         global $wpdb;
-        $this->db_table = $wpdb->prefix . 'linkbrack_urls';
+        $this->db_table = $wpdb->prefix . 'link_analyzer_urls';
     }
 
     /**

@@ -2,10 +2,10 @@
 /**
  * Ajax handlers for scanning process.
  */
-class LinkBrack_Ajax {
+class Link_Analyzer_Ajax {
 
     public function start_scan() {
-        check_ajax_referer( 'linkbrack_scan_nonce', 'nonce' );
+        check_ajax_referer( 'link_analyzer_scan_nonce', 'nonce' );
 
         if ( ! current_user_can( 'manage_options' ) ) {
             wp_send_json_error( array( 'message' => 'Permission denied' ) );
@@ -14,12 +14,12 @@ class LinkBrack_Ajax {
         // Initialize Scan
         // In a real app, we might store a "scan_id" in options.
         // Get total items count.
-        $scanner = new LinkBrack_Scanner();
+        $scanner = new Link_Analyzer_Scanner();
         $total = $scanner->get_total_items();
 
         // Clear previous results from DB?
         // global $wpdb; 
-        // $wpdb->query("TRUNCATE TABLE {$wpdb->prefix}linkbrack_urls"); // Optional: Reset
+        // $wpdb->query("TRUNCATE TABLE {$wpdb->prefix}link_analyzer_urls"); // Optional: Reset
 
         wp_send_json_success( array( 
             'message' => 'Scan started',
@@ -28,12 +28,12 @@ class LinkBrack_Ajax {
     }
 
     public function scan_batch() {
-        check_ajax_referer( 'linkbrack_scan_nonce', 'nonce' );
+        check_ajax_referer( 'link_analyzer_scan_nonce', 'nonce' );
 
         $offset = isset( $_POST['scanned_count'] ) ? intval( $_POST['scanned_count'] ) : 0;
         $batch_size = 5; // Small batch for responsiveness
 
-        $scanner = new LinkBrack_Scanner();
+        $scanner = new Link_Analyzer_Scanner();
         $results = $scanner->scan_batch( $offset, $batch_size );
 
         $count = count($results); // How many urls found? 

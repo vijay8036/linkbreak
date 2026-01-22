@@ -3,7 +3,7 @@
  * Fired during plugin activation
  */
 
-class LinkBrack_Activator {
+class Link_Analyzer_Activator {
 
 	/**
 	 * Create the custom database table for storing URLs.
@@ -11,7 +11,7 @@ class LinkBrack_Activator {
 	public static function activate() {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . 'linkbrack_urls';
+		$table_name = $wpdb->prefix . 'link_analyzer_urls';
 		$charset_collate = $wpdb->get_charset_collate();
 
 		$sql = "CREATE TABLE $table_name (
