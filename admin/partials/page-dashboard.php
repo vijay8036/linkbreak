@@ -23,8 +23,8 @@
 
     <div class="link-analyzer-dashboard">
 
-        <!-- Stats Overview -->
-        <div class="link-analyzer-stats-row">
+        <!-- Combined Stats and Controls Row -->
+        <div class="link-analyzer-combined-row">
             <div class="stat-box success">
                 <span class="material-icons">check_circle</span>
                 <div class="stat-content">
@@ -32,6 +32,7 @@
                     <span class="stat-number" id="stat-working">0</span>
                 </div>
             </div>
+
             <div class="stat-box info">
                 <span class="material-icons">analytics</span>
                 <div class="stat-content">
@@ -39,34 +40,31 @@
                     <span class="stat-number" id="stat-total">0</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Controls -->
-        <div class="link-analyzer-card link-analyzer-controls">
-            <h2>
-                <span class="material-icons">settings</span>
-                Scan Controls
-            </h2>
-            <div class="link-analyzer-actions">
-                <button id="link-analyzer-start-scan" class="button button-primary button-large">
-                    <span class="material-icons">play_arrow</span>
-                    Start New Scan
-                </button>
-                <button id="link-analyzer-pause-scan" class="button button-secondary button-large" disabled>
-                    <span class="material-icons">pause</span>
-                    Pause
-                </button>
-                <span id="link-analyzer-status-text" class="status-message">Ready to scan.</span>
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="link-analyzer-progress-wrapper" style="display:none;">
-                <div class="link-analyzer-progress-bar">
-                    <div class="link-analyzer-progress-fill" style="width: 0%;"></div>
+            <div class="link-analyzer-card link-analyzer-controls-panel">
+                <div class="link-analyzer-actions">
+                    <button id="link-analyzer-start-scan" class="button button-primary button-large">
+                        <span class="material-icons">play_arrow</span>
+                        Start New Scan
+                    </button>
+                    <button id="link-analyzer-pause-scan" class="button button-secondary button-large" disabled>
+                        <span class="material-icons">pause</span>
+                        Pause
+                    </button>
+                    <div class="controls-status-wrapper">
+                        <span id="link-analyzer-status-text" class="status-message">Ready to scan.</span>
+                    </div>
                 </div>
-                <div class="link-analyzer-progress-stats">
-                    <span class="material-icons">analytics</span>
-                    <span id="scanned-count">0</span> / <span id="total-count">0</span> items scanned
+
+                <!-- Progress Bar -->
+                <div class="link-analyzer-progress-wrapper" style="display:none;">
+                    <div class="link-analyzer-progress-bar">
+                        <div class="link-analyzer-progress-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="link-analyzer-progress-stats">
+                        <span class="material-icons">analytics</span>
+                        <span id="scanned-count">0</span> / <span id="total-count">0</span> items scanned
+                    </div>
                 </div>
             </div>
         </div>
